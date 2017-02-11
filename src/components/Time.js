@@ -39,7 +39,7 @@ export default class Time extends React.Component {
 						options={options}
 						value={options[0].value}
 						name="Hour"
-					/>{' '}{`:`}{' '}
+					/>:
 					<TimeSelector
 						logChange={logChange}
 						options={options2}
