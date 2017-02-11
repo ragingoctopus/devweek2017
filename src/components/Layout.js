@@ -10,7 +10,13 @@ class App extends Component {
       minute: '',
       day: ''
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleSubmit() {
+    console.log('wired!');
+  }
+
   render() {
     const { hour, minute, day } = this.state;
     return (
@@ -40,7 +46,7 @@ class App extends Component {
         <div className="dummy">
           <input type="text"/>
         </div>
-        <button className="submit_button">SUBMIT MEMO</button>
+        <button className="submit_button" onClick={this.handleSubmit}>SUBMIT MEMO</button>
         <p className="App-intro">
           To get started
         </p>
