@@ -9,7 +9,11 @@
     "rc-calendar": "^7.6.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+<<<<<<< 8482ec9c4458bcd4092cc722d4c93adb5739cca4
     "react-select": "^1.0.0-rc.3"
+=======
+    "react-dropdown": "^1.2.0"
+>>>>>>> boiler plate for time.js
   },
   "scripts": {
     "start": "react-scripts start",
