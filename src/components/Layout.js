@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
+import logo from './logo.svg';
+import Time from './components/Time';
 
 class App extends Component {
   render() {
@@ -31,6 +33,10 @@ class App extends Component {
           <input type="text"/>
         </div>
         <button className="submit_button">SUBMIT MEMO</button>
+        <p className="App-intro">
+          To get started
+        </p>
+        <Time/>
       </div>
     );
   }
