@@ -4,7 +4,16 @@ import logo from './logo.svg';
 import Time from './Time';
 
 class App extends Component {
+  constructor(){
+    super()
+    this.state = {
+      hour: '',
+      minute: '',
+      day: ''
+    }
+  }
   render() {
+    const { hour, minute, day } = this.state;
     return (
       <div className="layout">
         <div className="dummy">
@@ -36,7 +45,7 @@ class App extends Component {
         <p className="App-intro">
           To get started
         </p>
-        <Time/>
+        <Time minute={minute} day={day} hour={hour}/>
       </div>
     );
   }
