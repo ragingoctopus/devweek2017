@@ -136,6 +136,7 @@ class App extends Component {
   }
 
   handleSubmit() {
+    var context = this;
     console.log(this.state);
     // reset memo field to blank
     // this.setState({
