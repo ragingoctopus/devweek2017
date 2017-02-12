@@ -75,10 +75,6 @@ class App extends Component {
           />
         </div>
         <button className="submit_button" onClick={this.handleSubmit}>SUBMIT MEMO</button>
-        <p className="App-intro">
-          To get started
-        </p>
-       
       </div>
     );
   }
