@@ -11,26 +11,16 @@ export default class CalendarPicker extends React.Component {
   constructor(props){
     super(props)
     var moment = new Moment();
-    moment = moment.format(this.getFormat());
+    var value = moment.format(this.getFormat());
     this.state = {
-      value: moment
+      value: value
     }
-    this.props.handleMenuSelect(moment, "date", this.props.data.type);
+    this.props.handleMenuSelect(value, "date", this.props.data.type);
   }
 
   onChange(value) {
-    // var d = new Date(value);
-    // // console.log(d);
-    // // console.log(new Moment())
+    value = value.format(this.getFormat());
 
-    // var year = d.getFullYear();
-    // var month = d.getMonth() + 1;
-    // var month = ("" + month).length === 2 ? month : "0" + month;
-    // var day = d.getDate();
-    // var day = ("" + day).length === 2 ? day : "0" + day;
-
-    // var fulldate = year + "-" + month + "-" + day;
-    
     this.setState({
       value: value
     })
@@ -45,6 +35,11 @@ export default class CalendarPicker extends React.Component {
   render() {
     const context = this;
     const state = this.state;
+
+    // this.props.handleMenuSelect(state.value, "date", this.props.data.type);
+
+    // var moment = new Moment();
+    // moment = moment.format(this.getFormat());
 
     const calendar = (<Calendar
       style={{ zIndex: 1000 }}
