@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
 import Time from './Time';
+import { Editor } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 class App extends Component {
   constructor(){
@@ -63,14 +65,16 @@ class App extends Component {
                <Time handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.from}/>
             </div>                            
         </div>
-        <div className="dummy">
-          <input type="text"/>
+        <div className="editor_container">
+          <Editor
+            // editorState={editorState}
+            toolbarClassName="home-toolbar"
+            wrapperClassName="home-wrapper"
+            editorClassName="home-editor"
+            // onEditorStateChange={this.onEditorStateChange}
+          />
         </div>
         <button className="submit_button" onClick={this.handleSubmit}>SUBMIT MEMO</button>
-        <p className="App-intro">
-          To get started
-        </p>
-       
       </div>
     );
   }
