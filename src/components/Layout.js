@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import Time from './Time';
 import Calendar from './Calendar';
+import $ from 'jquery';
 
 class App extends Component {
   constructor(){
@@ -23,6 +24,22 @@ class App extends Component {
       },
       memo: ''
     }
+  }
+
+  componentDidMount() {
+    var context = this;
+    $.ajax({
+      url: "https://secret-wave-94862.herokuapp.com/events/getData",
+      method: "GET",
+      success: function(res) {
+        console.log(res);
+        context.findTime(res.data);
+        context.setState({
+          memo: res.data
+        })
+      }
+    })
+    
   }
 
   colonChecker (i, string, currentString){
@@ -117,6 +134,25 @@ class App extends Component {
   }
 
   handleSubmit() {
+    var context = this;
+    console.log(this.state);
+    // reset memo field to blank
+    // this.setState({
+    //   memo: ''
+    // })
+    $.ajax({
+      url: "https://secret-wave-94862.herokuapp.com/events/gcl",
+      method: "POST",
+      data: {
+        summary: context.state.memo,
+        start: context.state.from.date + "T" + context.state.from.hour + ":" + context.state.from.min + ":00",
+        end: context.state.to.date + "T" + context.state.to.hour + ":" + context.state.to.min + ":00",
+        timezone: "America/Los_Angeles"
+      },
+      success: function(res) {
+        console.log(res);
+      }
+    })
     console.log(this.findTime(this.state.memo));
   }
 
