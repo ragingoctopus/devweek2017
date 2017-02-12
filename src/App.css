@@ -8,7 +8,7 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #314049;
+  background: #F2F2F2;
 }
 
 .panels {
@@ -17,6 +17,10 @@ html {
 
 .panel-title {
   color: #0ABE51;
+}
+
+.submit_btn {
+  margin-bottom: 20px;
 }
 
 .spacer {
@@ -69,4 +73,16 @@ html {
 
 .calendar_underline {
   width: 90%;
+}
+
+.message_success {
+  color: #0ABE51;
+}
+
+.message_error {
+  color: red;
+}
+
+.submitMessage {
+  margin-bottom: 30px;
 }

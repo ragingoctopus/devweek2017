@@ -22,7 +22,8 @@ class App extends Component {
         "am/pm": '',
         type: 'from'
       },
-      memo: ''
+      memo: '',
+      message: ''
     }
   }
 
@@ -151,6 +152,14 @@ class App extends Component {
       },
       success: function(res) {
         console.log(res);
+        context.setState({ memo: '', message: 'Event Added'})
+        $('.submitMessage').removeClass('message_error');
+        $('.submitMessage').addClass('message_success');
+      },
+      error: function(err) {
+        context.setState({ message: 'Error Adding Event'})
+        $('.submitMessage').removeClass('message_success');
+        $('.submitMessage').addClass('message_error');
       }
     })
     console.log(this.findTime(this.state.memo));
@@ -187,7 +196,8 @@ class App extends Component {
           <h2 className="panel-title">Memo</h2>
           <textarea className="memo" name="memo" cols="30" rows="30" value={this.state.memo} onChange={this.memoChange.bind(this)}></textarea>
         </div>
-        <button className="waves-effect waves-light green btn" onClick={this.handleSubmit.bind(this)}>SUBMIT MEMO</button>
+        <button className="waves-effect waves-light green btn submit_btn" onClick={this.handleSubmit.bind(this)}>SUBMIT MEMO</button>
+        <h5 className='submitMessage' >{this.state.message}</h5>
       </div>
     );
   }
