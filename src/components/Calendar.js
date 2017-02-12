@@ -5,31 +5,27 @@ import DatePicker from 'rc-calendar/lib/Picker';
 import zhCN from 'rc-calendar/lib/locale/zh_CN';
 import enUS from 'rc-calendar/lib/locale/en_US';
 import '../App.css'
+import Moment from 'moment';
 
 export default class CalendarPicker extends React.Component {
   constructor(props){
     super(props)
+    var moment = new Moment();
+    var value = moment.format(this.getFormat());
     this.state = {
-      value: ''
+      value: value
     }
+    this.props.handleMenuSelect(value, "date", this.props.data.type);
   }
 
   onChange(value) {
-    var d = new Date(value);
+    value = value.format(this.getFormat());
 
-    var year = d.getFullYear();
-    var month = d.getMonth() + 1;
-    var month = ("" + month).length === 2 ? month : "0" + month;
-    var day = d.getDate();
-    var day = ("" + day).length === 2 ? day : "0" + day;
-
-    var fulldate = year + "-" + month + "-" + day;
-    
     this.setState({
       value: value
     })
 
-    this.props.handleMenuSelect( fulldate , "date", this.props.data.type );
+    this.props.handleMenuSelect( value , "date", this.props.data.type );
   }
 
   getFormat(time) {
@@ -39,6 +35,11 @@ export default class CalendarPicker extends React.Component {
   render() {
     const context = this;
     const state = this.state;
+
+    // this.props.handleMenuSelect(state.value, "date", this.props.data.type);
+
+    // var moment = new Moment();
+    // moment = moment.format(this.getFormat());
 
     const calendar = (<Calendar
       style={{ zIndex: 1000 }}
@@ -50,9 +51,10 @@ export default class CalendarPicker extends React.Component {
       <DatePicker
           animation="slide-up"
           calendar={calendar}
-          value={state.value}
+          // value={state.value}
           onChange={this.onChange.bind(this)}
           className='calendar_underline'
+          defaultValue={new Moment()}
         >
           {
             ({ value }) => {
