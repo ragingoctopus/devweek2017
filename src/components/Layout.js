@@ -49,11 +49,8 @@ class App extends Component {
       }else if(this.colonChecker(i, message, currentString)){
           if(this.checkLastTwo(message, i)) {
             currentString += `:${message[i+1]}${message[i+2]}`
-<<<<<<< 475cfc787978fcafd9043b0eda95a4d8898d269d
             this.parseTime(currentString);
-=======
             return currentString;
->>>>>>> testing
           }else {
             currentString = '';
           }
@@ -63,7 +60,6 @@ class App extends Component {
     }
 
   }
-<<<<<<< 475cfc787978fcafd9043b0eda95a4d8898d269d
 
   parseTime(time) {
     var splitTime = time.split(':');
@@ -107,8 +103,6 @@ class App extends Component {
 
   }
 
-=======
->>>>>>> testing
   handleMenuSelect(val, type, when) {
     const { to, from } = this.state
     if(when === 'to') {
