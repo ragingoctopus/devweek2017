@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import Time from './Time';
+import Calendar from './Calendar';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
@@ -9,12 +10,14 @@ class App extends Component {
     super()
     this.state = {
       to: {
+        date: '',
         hour: '',
         minute: '',
         day: '',
         type: 'to'
       },
       from: {
+        date: '',
         hour: '',
         minute: '',
         day: '',
@@ -34,6 +37,9 @@ class App extends Component {
       this.setState({ from: newObj })
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    console.log(val + " " + type + " " + when)
+    console.log(this.state.to);
+    console.log(this.state.from);
   }
 
   handleSubmit() {
@@ -47,7 +53,7 @@ class App extends Component {
           <h1>FROM</h1>
           <div>
             <h2>Date</h2>
-            <input type="text"/>
+            <Calendar handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.to}/>
           </div>
           <div>
             <h2>Time</h2>
@@ -58,7 +64,7 @@ class App extends Component {
           <h1>To</h1>
             <div>
               <h2>Date</h2>
-              <input type="text"/>
+              <Calendar handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.from}/>
             </div>
             <div>
               <h2>Time</h2>

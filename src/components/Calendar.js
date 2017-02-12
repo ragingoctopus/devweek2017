@@ -6,10 +6,10 @@ import zhCN from 'rc-calendar/lib/locale/zh_CN';
 import enUS from 'rc-calendar/lib/locale/en_US';
 
 export default class CalendarPicker extends React.Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
-      value: ""
+      value: ''
     }
   }
 
@@ -17,13 +17,18 @@ export default class CalendarPicker extends React.Component {
     var d = new Date(value);
 
     var year = d.getFullYear();
-    var month = "0" + d.getMonth();
-    var day = d.getDay();
+    var month = d.getMonth() + 1;
+    var month = ("" + month).length === 2 ? month : "0" + month;
+    var day = d.getDate();
+    var day = ("" + day).length === 2 ? day : "0" + day;
 
     var fulldate = year + "-" + month + "-" + day;
+    
     this.setState({
       value: value
     })
+
+    this.props.handleMenuSelect( fulldate , "date", this.props.data.type );
   }
 
   getFormat(time) {
