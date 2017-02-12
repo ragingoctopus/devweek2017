@@ -24,7 +24,37 @@ class App extends Component {
       memo: ''
     }
   }
-
+  colonChecker (i, string, currentString){
+    if(string[i] === ':' && string[i + 3] === ' ' && (currentString.length === 2 || currentString.length === 1)) {
+      return true
+    }
+    return false
+  }  
+  checkLastTwo(message, i){
+    var numbers = '0123456789';
+    if(numbers.indexOf(message[i + 1]) > -1 && numbers.indexOf(message[i + 2]) > -1){
+      return true
+    }
+    return false
+  }
+  findTime(message){
+  var numbers = '0123456789';
+  var currentString = '';
+  for(var i = 0; i < message.length; i++) {
+    if(numbers.indexOf(message[i]) > -1) {
+      currentString += message[i]
+    }else if(this.colonChecker(i, message, currentString)){
+        if(this.checkLastTwo(message, i)) {
+          currentString += `:${message[i+1]}${message[i+2]}`
+          return currentString;
+        }else {
+          currentString = '';
+        }
+    } else {
+      currentString = '';
+    }
+  }
+  }
   handleMenuSelect(val, type, when) {
     const { to, from } = this.state
     if(when === 'to') {
