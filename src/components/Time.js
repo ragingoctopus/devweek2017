@@ -48,10 +48,11 @@ export default class Time extends React.Component {
 					<TimeSelector
 						handleMenuSelect={handleMenuSelect}
 						options={options2}
-						value={data.minute}
+						value={data.min}
 						type={data.type}
-						name="Minute"
+						name="Min"
 					/>
+					<h1>,</h1>
 					<TimeSelector
 						handleMenuSelect={handleMenuSelect}
 						options={options3}

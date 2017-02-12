@@ -12,6 +12,7 @@ const TimeSelector = (props) => {
 				onChange={(e) => handleMenuSelect( e.value , name, type )} 
 				value={value} 
 				placeholder={name}
+				clearable={false}
 			/>
 		</div>
 	)

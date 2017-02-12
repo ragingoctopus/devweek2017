@@ -12,14 +12,14 @@ class App extends Component {
       to: {
         date: '',
         hour: '',
-        minute: '',
+        min: '',
         day: '',
         type: 'to'
       },
       from: {
         date: '',
         hour: '',
-        minute: '',
+        min: '',
         day: '',
         type: 'from'
       }
@@ -50,26 +50,22 @@ class App extends Component {
     return (
       <div className="layout">
         <div className="dummy">
-          <h1>FROM</h1>
+          <h2>From</h2>
           <div>
-            <h2>Date</h2>
             <Calendar handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.to}/>
-          </div>
-          <div>
-            <h2>Time</h2>
             <Time handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.to}/>
           </div>
+          <input type="text"/>
         </div>
         <div className="dummy">
           <h1>To</h1>
             <div>
-              <h2>Date</h2>
               <Calendar handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.from}/>
-            </div>
+              <Time handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.from}/>
+            </div>   
             <div>
-              <h2>Time</h2>
-               <Time handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.from}/>
-            </div>                            
+              <input type="text"/>
+            </div>                         
         </div>
         <div className="editor_container">
           <Editor
