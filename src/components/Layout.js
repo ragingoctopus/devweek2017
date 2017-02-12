@@ -27,12 +27,14 @@ class App extends Component {
   }
 
   componentDidMount() {
+    var context = this;
     $.ajax({
       url: "https://secret-wave-94862.herokuapp.com/events/getData",
       method: "GET",
       success: function(res) {
         console.log(res);
-        this.setState({
+        context.findTime(res.data);
+        context.setState({
           memo: res.data
         })
       }
