@@ -44,7 +44,7 @@ export default class Time extends React.Component {
 						type={data.type}
 						name="Hour"
 					/>
-					<h1>:</h1>
+					<div className="spacer">:</div>
 					<TimeSelector
 						handleMenuSelect={handleMenuSelect}
 						options={options2}
@@ -52,13 +52,13 @@ export default class Time extends React.Component {
 						type={data.type}
 						name="Min"
 					/>
-					<h1>,</h1>
+					<div className="spacer"></div>
 					<TimeSelector
 						handleMenuSelect={handleMenuSelect}
 						options={options3}
-						value={data.day}
+						value={data['am/pm']}
 						type={data.type}
-						name="Day"
+						name="AM/PM"
 					/>
 			</div>
 		)
