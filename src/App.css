@@ -10,12 +10,17 @@ html {
 }
 
 .dummy {
-  height: 50vh;
+  height: 70vh;
   width: 90vw;
   border: solid 1px black;
   margin-bottom: 0.5rem;
   text-align: center;
   font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 .submit_button {
@@ -25,4 +30,8 @@ html {
   border-radius: 10px;
   align-self: flex-end;
   margin-right: 4.5em;
+}
+
+.time_selector {
+  width: 10rem;
 }
