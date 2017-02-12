@@ -138,7 +138,7 @@ class App extends Component {
         <div className="card-panel panels">
           <div className="card-content">
             <h1 className="panel-title">From</h1>
-            <div>
+            <div className='calendar_underline'>
               <Calendar handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.to}/>
               <Time handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.from}/>
             </div>
@@ -147,7 +147,7 @@ class App extends Component {
         <div className="card-panel panels">
           <div className="card-content">
             <h1 className="panel-title">To</h1>
-            <div>
+            <div className='calendar_underline'>
               <Calendar handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.from}/>
               <Time handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.to}/>
             </div>  

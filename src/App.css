@@ -8,6 +8,7 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: #314049;
 }
 
 .panels {
@@ -64,4 +65,8 @@ html {
 .memo {
   resize: none;
   height: 30vh;
+}
+
+.calendar_underline {
+  width: 90%;
 }
