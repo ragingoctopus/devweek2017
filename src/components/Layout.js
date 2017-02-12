@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import '../App.css';
 import Time from './Time';
 import Calendar from './Calendar';
-import { Editor } from 'react-draft-wysiwyg';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 class App extends Component {
   constructor(){
@@ -22,9 +20,11 @@ class App extends Component {
         min: '',
         "am/pm": '',
         type: 'from'
-      }
+      },
+      memo: ''
     }
   }
+
   handleMenuSelect(val, type, when) {
     const { to, from } = this.state
     if(when === 'to') {
@@ -36,14 +36,23 @@ class App extends Component {
       newObj[type.toLowerCase()] = val
       this.setState({ from: newObj })
     }
-    this.handleSubmit = this.handleSubmit.bind(this);
     console.log(val + " " + type + " " + when)
     console.log(this.state.to);
     console.log(this.state.from);
   }
 
   handleSubmit() {
-    console.log('wired!');
+    console.log(this.state);
+    // reset memo field to blank
+    // this.setState({
+    //   memo: ''
+    // })
+  }
+
+  memoChange(e) {
+    this.setState({
+      memo: e.target.value
+    })
   }
 
   render() {
@@ -67,16 +76,11 @@ class App extends Component {
             </div>  
           </div>                         
         </div>
-        <div className="editor_container">
-          <Editor
-            // editorState={editorState}
-            toolbarClassName="home-toolbar"
-            wrapperClassName="home-wrapper"
-            editorClassName="home-editor"
-            // onEditorStateChange={this.onEditorStateChange}
-          />
+        <div className="card-panel panels">
+          <h2 className="panel-title">Memo</h2>
+          <textarea className="memo" name="memo" cols="30" rows="30" value={this.state.memo} onChange={this.memoChange.bind(this)}></textarea>
         </div>
-        <button className="waves-effect waves-light btn" onClick={this.handleSubmit}>SUBMIT MEMO</button>
+        <button className="waves-effect waves-light btn" onClick={this.handleSubmit.bind(this)}>SUBMIT MEMO</button>
       </div>
     );
   }

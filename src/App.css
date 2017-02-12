@@ -25,22 +25,6 @@ html {
   margin-left: 10px;
 }
 
-.dummy {
-  height: 50vh;
-  width: 80vw;
-  margin-bottom: 0.5rem;
-  text-align: center;
-  font-size: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 2px 2px 5px black;
-  margin: 10px;
-  color: #0ABE51;
-  
-}
-
 .editor_container {
   height: 80vh;
   width: 90vw;
@@ -57,11 +41,11 @@ html {
   margin-right: 4.5em;
 }
 
-.memo_box {
-  height: 100%;
-  width: 100%;
-}
-
 .time_selector {
   width: 8rem;
+}
+
+.memo {
+  resize: none;
+  height: 30vh;
 }
