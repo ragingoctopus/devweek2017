@@ -23,7 +23,6 @@ class App extends Component {
   handleMenuSelect(val, type, when) {
     const { to, from } = this.state
     if(when === 'to') {
-      console.log('hello')
       var newObj = Object.assign({}, to)
       newObj[type.toLowerCase()] = val
       this.setState({ to: newObj })
