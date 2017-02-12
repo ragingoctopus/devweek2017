@@ -149,7 +149,7 @@ class App extends Component {
         start: context.state.from.date + "T" + context.state.from.hour + ":" + context.state.from.min,
         end: context.state.to.date + "T" + context.state.to.hour + ":" + context.state.to.min,
         timezone: "America/Los_Angeles"
-      }
+      },
       success: function(res) {
         console.log(res);
       }
