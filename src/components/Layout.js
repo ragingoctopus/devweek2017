@@ -55,17 +55,13 @@ class App extends Component {
             <Calendar handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.to}/>
             <Time handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.to}/>
           </div>
-          <input type="text"/>
         </div>
         <div className="dummy">
           <h1>To</h1>
             <div>
               <Calendar handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.from}/>
               <Time handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.from}/>
-            </div>   
-            <div>
-              <input type="text"/>
-            </div>                         
+            </div>                           
         </div>
         <div className="editor_container">
           <Editor
