@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import Time from './Time';
 import Calendar from './Calendar';
+import $ from 'jquery';
 
 class App extends Component {
   constructor(){
@@ -23,6 +24,17 @@ class App extends Component {
       },
       memo: ''
     }
+  }
+
+  componentDidMount() {
+    $.ajax({
+      url: "https://secret-wave-94862.herokuapp.com/events/getData",
+      method: "GET",
+      success: function(res) {
+        console.log(res);
+      }
+    })
+    
   }
 
   colonChecker (i, string, currentString){
