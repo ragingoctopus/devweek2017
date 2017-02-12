@@ -18,6 +18,13 @@ html {
   font-size: 1.5rem;
 }
 
+.editor_container {
+  height: 80vh;
+  width: 90vw;
+  border: 1px solid black;
+  overflow: auto;
+}
+
 .submit_button {
   width: 15rem;
   height: 5rem;
@@ -25,4 +32,9 @@ html {
   border-radius: 10px;
   align-self: flex-end;
   margin-right: 4.5em;
+}
+
+.memo_box {
+  height: 100%;
+  width: 100%;
 }
