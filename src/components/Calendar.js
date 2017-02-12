@@ -4,6 +4,7 @@ import 'rc-calendar/assets/index.css';
 import DatePicker from 'rc-calendar/lib/Picker';
 import zhCN from 'rc-calendar/lib/locale/zh_CN';
 import enUS from 'rc-calendar/lib/locale/en_US';
+import '../App.css'
 
 export default class CalendarPicker extends React.Component {
   constructor(props){
@@ -41,6 +42,7 @@ export default class CalendarPicker extends React.Component {
 
     const calendar = (<Calendar
       style={{ zIndex: 1000 }}
+      className='calendar_underline'
       dateInputPlaceholder="please input"
     />);
 
@@ -50,17 +52,17 @@ export default class CalendarPicker extends React.Component {
           calendar={calendar}
           value={state.value}
           onChange={this.onChange.bind(this)}
+          className='calendar_underline'
         >
           {
             ({ value }) => {
               return (
-                <span tabIndex="0">
+                <span className='calendar_underline' tabIndex="0">
                 <input
                   placeholder="please select"
-                  style={{ width: 250 }}
                   readOnly
                   tabIndex="-1"
-                  className="ant-calendar-picker-input ant-input"
+                  className="ant-calendar-picker-input ant-input "
                   value={value && value.format(context.getFormat(state.showTime)) || ''}
                 />
                 </span>
