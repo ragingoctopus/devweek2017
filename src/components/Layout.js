@@ -8,9 +8,30 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      hour: '',
-      minute: '',
-      day: ''
+      to: {
+        hour: '',
+        minute: '',
+        day: '',
+        type: 'to'
+      },
+      from: {
+        hour: '',
+        minute: '',
+        day: '',
+        type: 'from'
+      }
+    }
+  }
+  handleMenuSelect(val, type, when) {
+    const { to, from } = this.state
+    if(when === 'to') {
+      var newObj = Object.assign({}, to)
+      newObj[type.toLowerCase()] = val
+      this.setState({ to: newObj })
+    } else {
+      var newObj = Object.assign({}, from)
+      newObj[type.toLowerCase()] = val
+      this.setState({ from: newObj })
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -20,7 +41,6 @@ class App extends Component {
   }
 
   render() {
-    const { hour, minute, day } = this.state;
     return (
       <div className="layout">
         <div className="dummy">
@@ -31,7 +51,7 @@ class App extends Component {
           </div>
           <div>
             <h2>Time</h2>
-            <input type="text"/>
+            <Time handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.to}/>
           </div>
         </div>
         <div className="dummy">
@@ -42,8 +62,8 @@ class App extends Component {
             </div>
             <div>
               <h2>Time</h2>
-              <input type="text"/>
-            </div>
+               <Time handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.from}/>
+            </div>                            
         </div>
         <div className="editor_container">
           <Editor
@@ -58,7 +78,7 @@ class App extends Component {
         <p className="App-intro">
           To get started
         </p>
-        <Time minute={minute} day={day} hour={hour}/>
+       
       </div>
     );
   }

@@ -10,12 +10,17 @@ html {
 }
 
 .dummy {
-  height: 50vh;
+  height: 70vh;
   width: 90vw;
   border: solid 1px black;
   margin-bottom: 0.5rem;
   text-align: center;
   font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 .editor_container {
@@ -37,4 +42,8 @@ html {
 .memo_box {
   height: 100%;
   width: 100%;
+}
+
+.time_selector {
+  width: 10rem;
 }
