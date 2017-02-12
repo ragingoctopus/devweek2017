@@ -1,14 +1,15 @@
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import React from 'react';
+import '../App.css';
 
 const TimeSelector = (props) => {
-	const { options, logChange, value, name } = props
+	const { options, handleMenuSelect, value, name, type } = props
 	return(
-		<div>
+		<div className='time_selector'>
 			<Select 
 				options={options} 
-				onChange={logChange} 
+				onChange={(e) => handleMenuSelect( e.value , name, type )} 
 				value={value} 
 				name={name}
 			/>

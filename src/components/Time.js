@@ -30,26 +30,33 @@ function logChange(val) {
     console.log("Selected: " + val);
 }
 export default class Time extends React.Component {
+	constructor(props) {
+		super(props)
+	}
 	render() {
+		const { data, handleMenuSelect } = this.props;
 		const defaultOption = options[0]
 		return (
 			<div style={styles.mainStyle}>
 					<TimeSelector
-						logChange={logChange}
+						handleMenuSelect={handleMenuSelect}
 						options={options}
-						value={options[0].value}
+						value={data.hour}
+						type={data.type}
 						name="Hour"
 					/>:
 					<TimeSelector
-						logChange={logChange}
+						handleMenuSelect={handleMenuSelect}
 						options={options2}
-						value={options2[0].value}
+						value={data.minute}
+						type={data.type}
 						name="Minute"
 					/>
 					<TimeSelector
-						logChange={logChange}
+						handleMenuSelect={handleMenuSelect}
 						options={options3}
-						value={options3[0].value}
+						value={data.day}
+						type={data.type}
 						name="Day"
 					/>
 			</div>

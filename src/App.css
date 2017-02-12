@@ -26,3 +26,7 @@ html {
   align-self: flex-end;
   margin-right: 4.5em;
 }
+
+.time_selector {
+  width: 15rem;
+}
