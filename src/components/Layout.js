@@ -141,6 +141,19 @@ class App extends Component {
     // this.setState({
     //   memo: ''
     // })
+    $.ajax({
+      url: "https://secret-wave-94862.herokuapp.com/events/gcl",
+      method: "POST",
+      data: {
+        summary: context.state.memo,
+        start: context.state.from.date + "T" + context.state.from.hour + ":" + context.state.from.min
+        end: context.state.to.date + "T" + context.state.to.hour + ":" + context.state.to.min
+        timezone: "America/Los_Angeles"
+      }
+      success: function(res) {
+        console.log(res);
+      }
+    })
   }
 
   memoChange(e) {
