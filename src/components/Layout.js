@@ -147,8 +147,8 @@ class App extends Component {
       method: "POST",
       data: {
         summary: context.state.memo,
-        start: context.state.from.date + "T" + context.state.from.hour + ":" + context.state.from.min,
-        end: context.state.to.date + "T" + context.state.to.hour + ":" + context.state.to.min,
+        start: context.state.from.date + "T" + context.state.from.hour + ":" + context.state.from.min + ":00",
+        end: context.state.to.date + "T" + context.state.to.hour + ":" + context.state.to.min + ":00",
         timezone: "America/Los_Angeles"
       },
       success: function(res) {
