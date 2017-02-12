@@ -11,7 +11,7 @@ const TimeSelector = (props) => {
 				options={options} 
 				onChange={(e) => handleMenuSelect( e.value , name, type )} 
 				value={value} 
-				name={name}
+				placeholder={name}
 			/>
 		</div>
 	)

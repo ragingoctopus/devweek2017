@@ -35,7 +35,6 @@ export default class Time extends React.Component {
 	}
 	render() {
 		const { data, handleMenuSelect } = this.props;
-		const defaultOption = options[0]
 		return (
 			<div style={styles.mainStyle}>
 					<TimeSelector
@@ -44,7 +43,8 @@ export default class Time extends React.Component {
 						value={data.hour}
 						type={data.type}
 						name="Hour"
-					/>:
+					/>
+					<h1>:</h1>
 					<TimeSelector
 						handleMenuSelect={handleMenuSelect}
 						options={options2}
