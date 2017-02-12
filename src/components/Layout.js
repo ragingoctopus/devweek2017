@@ -67,6 +67,7 @@ class App extends Component {
           if(this.checkLastTwo(message, i)) {
             currentString += `:${message[i+1]}${message[i+2]}`
             this.parseTime(currentString);
+            return currentString;
           }else {
             currentString = '';
           }
@@ -130,9 +131,6 @@ class App extends Component {
       newObj[type.toLowerCase()] = val
       this.setState({ from: newObj })
     }
-    console.log(val + " " + type + " " + when)
-    console.log(this.state.to);
-    console.log(this.state.from);
   }
 
   handleSubmit() {
@@ -155,6 +153,7 @@ class App extends Component {
         console.log(res);
       }
     })
+    console.log(this.findTime(this.state.memo));
   }
 
   memoChange(e) {
@@ -169,7 +168,7 @@ class App extends Component {
         <div className="card-panel panels">
           <div className="card-content">
             <h1 className="panel-title">From</h1>
-            <div>
+            <div className='calendar_underline'>
               <Calendar handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.to}/>
               <Time handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.from}/>
             </div>
@@ -178,7 +177,7 @@ class App extends Component {
         <div className="card-panel panels">
           <div className="card-content">
             <h1 className="panel-title">To</h1>
-            <div>
+            <div className='calendar_underline'>
               <Calendar handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.from}/>
               <Time handleMenuSelect={this.handleMenuSelect.bind(this)} data={this.state.to}/>
             </div>  
