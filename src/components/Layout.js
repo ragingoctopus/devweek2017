@@ -32,6 +32,9 @@ class App extends Component {
       method: "GET",
       success: function(res) {
         console.log(res);
+        this.setState({
+          memo: res.data
+        })
       }
     })
     
